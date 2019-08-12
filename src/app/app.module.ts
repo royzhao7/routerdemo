@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,11 +13,8 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
     PageNotFoundComponent,
     DepartmentDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

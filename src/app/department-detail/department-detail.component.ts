@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap  } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-department-detail',
@@ -7,16 +7,17 @@ import { ActivatedRoute, Router, ParamMap  } from '@angular/router';
   styleUrls: ['./department-detail.component.css']
 })
 export class DepartmentDetailComponent implements OnInit {
-
-  constructor(private activatedRoute: ActivatedRoute , private router: Router) { }
-public id;
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  public id;
   ngOnInit() {
     // tslint:disable-next-line: radix
     // this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     // tslint:disable-next-line: radix
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {  this.id = parseInt(params.get('id')); } );
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      // tslint:disable-next-line: radix
+      this.id = parseInt(params.get('id'));
+    });
   }
-
 
   gotoPre() {
     let pid = this.id - 1;
@@ -29,6 +30,7 @@ public id;
   }
   gotoDepartments() {
     let selectedId = this.id ? this.id : null;
-    this.router.navigate(['/departments' , { id : this.id}]);
+  //  this.router.navigate(['/departments', { id: selectedId , test: 'testValue' }]);
+    this.router.navigate(['../', { id: selectedId } ] , { relativeTo: this.activatedRoute });
   }
 }
