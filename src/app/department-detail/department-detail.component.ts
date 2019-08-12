@@ -27,4 +27,8 @@ public id;
     let nid = this.id + 1;
     this.router.navigate(['/departments', nid]);
   }
+  gotoDepartments() {
+    let selectedId = this.id ? this.id : null;
+    this.router.navigate(['/departments' , { id : this.id}]);
+  }
 }
